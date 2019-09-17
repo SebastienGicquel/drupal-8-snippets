@@ -1,3 +1,12 @@
+## implementing hook_form_alter in a custom module or in theme
+```php
+function mymodule_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id = 'my_form') {
+    $form['actions']['submit']['#attributes']['class'][] = 'custom-class';
+  }
+}
+```
+
 ## Disable label
 ```php
 // field machine name : name 
