@@ -26,3 +26,8 @@ $form['field_prenom']['widget'][0]['value']['#placeholder'] = 'Prénom';
 ```php
 $form['actions']['submit']['#button_type'] = 'cta-gradient-pink';
 ```
+
+## Add classes to form elements (input, select, etc.)
+```php
+$form['name']['#attributes']['class'][] = 'input--hoshi';
+```
