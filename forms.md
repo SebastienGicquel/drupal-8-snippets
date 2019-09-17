@@ -12,3 +12,6 @@ $form['name']['#attributes']['placeholder'] = 'Nom';
 // custom field machine name : field_prenom 
 $form['field_prenom']['widget'][0]['value']['#placeholder'] = 'Prénom';
 ```
+
+## Add custom CSS class to submit button
+$form['actions']['submit']['#button_type'] = 'cta-gradient-pink';
