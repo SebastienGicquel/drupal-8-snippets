@@ -2,4 +2,5 @@
 
 ```twig
 {% if node.field_example.value %}
-```php
+{% endif %}
+```twig
