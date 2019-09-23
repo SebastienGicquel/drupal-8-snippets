@@ -31,3 +31,11 @@ $form['actions']['submit']['#button_type'] = 'cta-gradient-pink';
 ```php
 $form['name']['#attributes']['class'][] = 'input--hoshi';
 ```
+
+## Redirect to an external URL after submitting a form
+```php
+use Drupal\Core\Routing\TrustedRedirectResponse;
+$response = new TrustedRedirectResponse('http://google.co.in');
+$form_state->setResponse($response);
+```
+
