@@ -39,3 +39,31 @@ $response = new TrustedRedirectResponse('http://google.co.in');
 $form_state->setResponse($response);
 ```
 
+## Send an email after submitting a form
+```php
+        $body = array(
+            '#theme' => 'item_list',
+            '#items' => [
+                sprintf('Nom : %s', $nom),
+                sprintf('Prénom : %s', $prenom),
+                sprintf('Email : %s', $e_mail)
+            ],
+        );
+
+        $langcode = \Drupal::currentUser()->getPreferredLangcode();
+        $reply = NULL;
+        $send = TRUE;
+
+        $params['message'] = '<p>lorem ipsum</p>';
+        $params['message'] .= render($body);
+        $params['subject'] = $this->t('lorem ipsum');
+        $params['options']['title'] = t('Your wonderful title');
+        $params['options']['footer'] = t('Your wonderful footer');
+        $params['from'] = $nom . ' ' . $prenom . '<' . $e_mail . '>';
+        //envoi d'un email notification inscription
+        /** @var MailManagerInterface $mailManagerService */
+        $mailManagerService = \Drupal::service('plugin.manager.mail');
+
+        $mailManagerService->mail('inscription_2019', 'inscription', 'hello@mail.fr', $langcode, $params, $reply, $send);
+```
+
