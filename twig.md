@@ -10,3 +10,7 @@ source : https://drupal.stackexchange.com/questions/199262/how-to-get-the-valid-
 ```twig
 {{ node.field_my_link.0.url }}
 ```
+## Include a module template into an other module template
+```twig
+{% include 'modules/Y/templates/twig-of-module-Y.html.twig' %}
+```
