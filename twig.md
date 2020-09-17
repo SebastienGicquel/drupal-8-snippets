@@ -16,7 +16,7 @@ source : https://drupal.stackexchange.com/questions/199262/how-to-get-the-valid-
 ```
 ## GET IMAGE/video URL FROM MEDIA FIELD IN TWIG
 
-#Solution 1
+#Solution 1 : preprocess function
 ```php
 function mytheme_preprocess_node(&$variables) {
  
@@ -30,12 +30,12 @@ function mytheme_preprocess_node(&$variables) {
   }
 }
 ```
-
+# in  node template
 ```twig
 {{ background_image_url }}
 ```
 
-#Solution 2
+#Solution 2 : in twig template directly
 ```twig
 {% if node.field_background_image is not empty %}
   {{ file_url(node.field_background_image.entity.field_media_image.entity.fileuri) }}
