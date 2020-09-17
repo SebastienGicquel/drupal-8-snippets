@@ -34,8 +34,7 @@ function mytheme_preprocess_node(&$variables) {
 ```twig
 {{ background_image_url }}
 ```
-
-#Solution 2 : in twig template directly
+# Solution 2 : in twig template directly
 ```twig
 {% if node.field_background_image is not empty %}
   {{ file_url(node.field_background_image.entity.field_media_image.entity.fileuri) }}
