@@ -44,7 +44,7 @@ function mytheme_preprocess_node(&$variables) {
 
 ## Access A Referenced Node's Fields - Field Level Templating
 source : https://drupal.stackexchange.com/questions/233977/access-a-referenced-nodes-fields-field-level-templating
-
+```twig
 {% for item in element['#items'] %}
 
     <div class="slide">
@@ -58,7 +58,7 @@ source : https://drupal.stackexchange.com/questions/233977/access-a-referenced-n
     </div>
 
 {% endfor %}
-
+```
 #example with image in node :
 ```twig
 {{ content.field_reference_content}}
