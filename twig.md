@@ -41,3 +41,42 @@ function mytheme_preprocess_node(&$variables) {
   {{ file_url(node.field_background_image.entity.field_media_image.entity.fileuri) }}
 {% endif %}
 ```
+
+## Access A Referenced Node's Fields - Field Level Templating
+source : https://drupal.stackexchange.com/questions/233977/access-a-referenced-nodes-fields-field-level-templating
+
+{% for item in element['#items'] %}
+
+    <div class="slide">
+
+        {{ item.entity.title.value }}
+
+        {{ item.entity.field_lead.value }}
+        
+         {{ item.entity.field_image_page_liste.0.entity.uri.value }}
+
+    </div>
+
+{% endfor %}
+
+#example with image in node :
+```twig
+{{ content.field_reference_content}}
+```
+
+and in field--node--field-reference-content.html.twig
+```twig
+{% for item in element['#items'] %}
+
+    <div class="slide">
+
+        {{ item.entity.title.value }}
+
+        {{ item.entity.field_lead.value }}
+        
+         {{ item.entity.field_image_page_liste.0.entity.uri.value }}
+
+    </div>
+
+{% endfor %}
+```
